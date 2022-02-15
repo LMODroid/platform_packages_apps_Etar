@@ -57,7 +57,7 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_label"
-        android:taskAffinity="org.lineageos.etar.task"
+        android:taskAffinity="com.libremobileos.etar.task"
         android:requiredAccountType="*"
         android:usesCleartextTraffic="false"
         android:theme="@style/CalendarAppThemeLight">
@@ -204,7 +204,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="org.lineageos.etar.provider"
+            android:authorities="com.libremobileos.etar.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -214,7 +214,7 @@
 
         <provider android:name="com.android.calendar.CalendarRecentSuggestionsProvider"
             android:exported="false"
-            android:authorities="org.lineageos.etar.CalendarRecentSuggestionsProvider" />
+            android:authorities="com.libremobileos.etar.CalendarRecentSuggestionsProvider" />
 
         <!-- Declarations for alerts/reminders -->
         <activity

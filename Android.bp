@@ -35,6 +35,6 @@ android_app {
 
     aaptflags: [
         "--rename-manifest-package",
-        "org.lineageos.etar",
+        "com.libremobileos.etar",
     ],
 }
