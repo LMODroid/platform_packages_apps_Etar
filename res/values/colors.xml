@@ -19,6 +19,8 @@
 -->
 <resources>
 
+    <color name="ic_launcher_background">#008A74</color>
+    <color name="ic_fill_color">#FFFFFF</color>
     <color name="colorPrimary">#41c3b1</color>
     <color name="colorPrimaryDark">#388d7f</color>
     <color name="colorAccent">#1dc1ab</color>
