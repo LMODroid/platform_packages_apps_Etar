@@ -15,6 +15,8 @@ gen/
 # Gradle files
 .gradle/
 build/
+app/build/
+app/libs/*-release.aar
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -27,6 +29,7 @@ proguard/
 
 # Android Studio
 .idea/
+*.iml
 
 # Android Studio Navigation editor temp files
 .navigation/
