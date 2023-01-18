@@ -26,6 +26,8 @@ import android.provider.CalendarContract.Reminders;
 import android.text.TextUtils;
 import android.text.util.Rfc822Token;
 
+import androidx.annotation.Nullable;
+
 import com.android.calendar.event.EditEventHelper;
 import com.android.calendar.event.EventColorCache;
 import com.android.calendar.settings.GeneralPreferences;
@@ -91,6 +93,7 @@ public class CalendarEventModel implements Serializable {
     public boolean mAllDay = false;
     public boolean mHasAlarm = false;
     public int mAvailability = Events.AVAILABILITY_BUSY;
+    public boolean mAvailabilityExplicitlySet = false;
     // PROVIDER_NOTES How does an event not have attendee data? The owner is added
     // as an attendee by default.
     public boolean mHasAttendeeData = true;
@@ -168,6 +171,7 @@ public class CalendarEventModel implements Serializable {
         int availability = intent.getIntExtra(Events.AVAILABILITY, -1);
         if (availability != -1) {
             mAvailability = availability;
+            mAvailabilityExplicitlySet = true;
         }
 
         int accessLevel = intent.getIntExtra(Events.ACCESS_LEVEL, -1);
@@ -178,6 +182,11 @@ public class CalendarEventModel implements Serializable {
         String rrule = intent.getStringExtra(Events.RRULE);
         if (!TextUtils.isEmpty(rrule)) {
             mRrule = rrule;
+        }
+
+        String timezone = intent.getStringExtra(Events.EVENT_TIMEZONE);
+        if (timezone != null) {
+            mTimezone = timezone;
         }
 
         String emails = intent.getStringExtra(Intent.EXTRA_EMAIL);
@@ -763,6 +772,7 @@ public class CalendarEventModel implements Serializable {
         mEventColorInitialized = true;
     }
 
+    @Nullable
     public int[] getCalendarEventColors() {
         if (mEventColorCache != null) {
             return mEventColorCache.getColorArray(mCalendarAccountName, mCalendarAccountType);

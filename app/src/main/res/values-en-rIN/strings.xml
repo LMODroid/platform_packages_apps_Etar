@@ -61,6 +61,7 @@
     <string name="goto_today">"Today"</string>
     <string name="goto_date">Go to\u2026</string>
     <string name="menu_preferences">"Settings"</string>
+    <string name="menu_info">Info</string>
     <string name="search">"Search"</string>
     <string name="hide_controls">"Hide controls"</string>
     <string name="show_controls">"Show controls"</string>
@@ -135,6 +136,7 @@
     <string name="edit_event_label">"Details"</string>
     <string name="edit_label">"Edit"</string>
     <string name="delete_label">"Delete"</string>
+    <string name="duplicate_label">Duplicate</string>
     <string name="save_label">Done</string>
     <string name="discard_label">Cancel</string>
     <string name="dismiss_all_label">"Dismiss all"</string>

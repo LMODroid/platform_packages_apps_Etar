@@ -55,6 +55,7 @@
     <string name="goto_today">"今天"</string>
     <string name="goto_date">转到 \u2026</string>
     <string name="menu_preferences">"设置"</string>
+    <string name="menu_info">信息</string>
     <string name="search">"搜索"</string>
     <string name="hide_controls">"隐藏控件"</string>
     <string name="show_controls">"显示控件"</string>
@@ -129,6 +130,7 @@
     <string name="edit_event_label">"详细信息"</string>
     <string name="edit_label">"编辑"</string>
     <string name="delete_label">"删除"</string>
+    <string name="duplicate_label">复制</string>
     <string name="save_label">完成</string>
     <string name="discard_label">取消</string>
     <string name="dismiss_all_label">"全部关闭"</string>

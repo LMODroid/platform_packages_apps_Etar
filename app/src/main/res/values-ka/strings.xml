@@ -61,6 +61,7 @@
     <string name="goto_today">"დღეს"</string>
     <string name="goto_date">გადასვლა\u2026</string>
     <string name="menu_preferences">"პარამეტრები"</string>
+    <string name="menu_info">ცნობა</string>
     <string name="search">"ძიება"</string>
     <string name="hide_controls">"სამართავის დამალვა"</string>
     <string name="show_controls">"სამართავის გამოჩენა"</string>
@@ -135,6 +136,7 @@
     <string name="edit_event_label">"ვრცლად"</string>
     <string name="edit_label">"ჩასწორება"</string>
     <string name="delete_label">"წაშლა"</string>
+    <string name="duplicate_label">გაორკეცება</string>
     <string name="save_label">მზადაა</string>
     <string name="discard_label">გაუქმება</string>
     <string name="dismiss_all_label">"ყველას აცილება"</string>

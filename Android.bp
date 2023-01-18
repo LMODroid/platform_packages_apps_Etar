@@ -24,10 +24,10 @@ android_app {
         "kotlin-annotations",
         "kotlinx-coroutines-android",
         "kotlinx-coroutines-core",
-        "etar-lib-androidx-constraintlayout_constraintlayout",
-        "etar-lib-androidx.preference_preference",
-        "etar-lib-androidx.appcompat_appcompat",
-        "etar-lib-com.google.android.material_material",
+        "androidx-constraintlayout_constraintlayout",
+        "androidx.preference_preference",
+        "androidx.appcompat_appcompat",
+        "com.google.android.material_material",
     ],
 
     optimize: {
@@ -40,6 +40,8 @@ android_app {
         "--rename-manifest-package",
         "com.libremobileos.etar",
     ],
+
+    kotlincflags: ["-Xjvm-default=enable"],
 
     required: [
         "org.lineageos.etar.allowlist"

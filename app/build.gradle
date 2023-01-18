@@ -10,13 +10,13 @@ editorconfig {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         minSdk 21
-        targetSdk 31
-        versionCode 32
-        versionName "1.0.30"
+        targetSdk 33
+        versionCode 33
+        versionName "1.0.33"
         applicationId "ws.xsoh.etar"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
@@ -74,6 +74,8 @@ android {
     }
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
+
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
@@ -94,9 +96,13 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     testImplementation 'junit:junit:4.13.2'
 
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.8'
+
     // Coroutines
     def coroutines_version = "1.6.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
 }
+
+preBuild.dependsOn (":aarGen")

@@ -61,6 +61,7 @@
     <string name="goto_today">"Heute"</string>
     <string name="goto_date">Gehe zu\u2026</string>
     <string name="menu_preferences">"Einstellungen"</string>
+    <string name="menu_info">Information</string>
     <string name="search">"Suche"</string>
     <string name="hide_controls">"Steuerelemente aus"</string>
     <string name="show_controls">"Steuerelemente ein"</string>
@@ -135,6 +136,7 @@
     <string name="edit_event_label">"Details"</string>
     <string name="edit_label">"Bearbeiten"</string>
     <string name="delete_label">"Löschen"</string>
+    <string name="duplicate_label">Duplizieren</string>
     <string name="save_label">Fertig</string>
     <string name="discard_label">Abbrechen</string>
     <string name="dismiss_all_label">"Alle schließen"</string>

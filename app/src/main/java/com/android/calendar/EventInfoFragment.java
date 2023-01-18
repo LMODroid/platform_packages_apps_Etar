@@ -126,8 +126,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import ws.xsoh.etar.BuildConfig;
 import ws.xsoh.etar.R;
@@ -242,7 +245,9 @@ public class EventInfoFragment extends DialogFragment implements OnCheckedChange
         Events.CUSTOM_APP_URI,       // 20
         Events.DTEND,                // 21
         Events.DURATION,             // 22
-        Events.ORIGINAL_SYNC_ID      // 23 do not remove; used in DeleteEventHelper
+        Events.ORIGINAL_SYNC_ID,     // 23 do not remove; used in DeleteEventHelper
+        Events.AVAILABILITY,         // 24
+        Events.ACCESS_LEVEL          // 25
     };
     private static final int EVENT_INDEX_ID = 0;
     private static final int EVENT_INDEX_TITLE = 1;
@@ -254,7 +259,7 @@ public class EventInfoFragment extends DialogFragment implements OnCheckedChange
     private static final int EVENT_INDEX_EVENT_TIMEZONE = 7;
     private static final int EVENT_INDEX_DESCRIPTION = 8;
     private static final int EVENT_INDEX_EVENT_LOCATION = 9;
-    private static final int EVENT_INDEX_ACCESS_LEVEL = 10;
+    private static final int EVENT_INDEX_CALENDAR_ACCESS_LEVEL = 10;
     private static final int EVENT_INDEX_CALENDAR_COLOR = 11;
     private static final int EVENT_INDEX_EVENT_COLOR = 12;
     private static final int EVENT_INDEX_STATUS = 13;
@@ -267,6 +272,8 @@ public class EventInfoFragment extends DialogFragment implements OnCheckedChange
     private static final int EVENT_INDEX_CUSTOM_APP_URI = 20;
     private static final int EVENT_INDEX_DTEND = 21;
     private static final int EVENT_INDEX_DURATION = 22;
+    private static final int EVENT_INDEX_AVAILABILITY = 24;
+    private static final int EVENT_INDEX_ACCESS_LEVEL = 25;
     private static final String[] ATTENDEES_PROJECTION = new String[] {
         Attendees._ID,                      // 0
         Attendees.ATTENDEE_NAME,            // 1
@@ -922,7 +929,7 @@ public class EventInfoFragment extends DialogFragment implements OnCheckedChange
             return false;
         }
         mEventCursor.moveToFirst();
-        mEventId = mEventCursor.getInt(EVENT_INDEX_ID);
+        mEventId = mEventCursor.getLong(EVENT_INDEX_ID);
         String rRule = mEventCursor.getString(EVENT_INDEX_RRULE);
         mIsRepeating = !TextUtils.isEmpty(rRule);
         // mHasAlarm will be true if it was saved in the event already, or if
@@ -1110,6 +1117,8 @@ public class EventInfoFragment extends DialogFragment implements OnCheckedChange
             shareEvent(ShareType.INTENT);
         } else if (itemId == R.id.info_action_export) {
             shareEvent(ShareType.SDCARD);
+        } else if (itemId == R.id.info_action_duplicate) {
+            duplicateEvent();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -1258,6 +1267,35 @@ public class EventInfoFragment extends DialogFragment implements OnCheckedChange
         }
     }
 
+    private void duplicateEvent() {
+        // save current state before duplicating
+        saveEvent();
+
+        final Intent intent = new Intent(mContext, EditEventActivity.class);
+        intent.setType("vnd.android.cursor.item/event");
+        intent.putExtra(CalendarContract.Events.TITLE, mEventCursor.getString(EVENT_INDEX_TITLE));
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, mEventCursor.getString(EVENT_INDEX_DESCRIPTION));
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, mEventCursor.getString(EVENT_INDEX_EVENT_LOCATION));
+        intent.putExtra(CalendarContract.Events.ORGANIZER, mEventCursor.getString(EVENT_INDEX_ORGANIZER));
+        intent.putExtra(CalendarContract.Events.RRULE, mEventCursor.getString(EVENT_INDEX_RRULE));
+        intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, mEventCursor.getInt(EVENT_INDEX_ACCESS_LEVEL));
+        intent.putExtra(CalendarContract.Events.AVAILABILITY, mEventCursor.getInt(EVENT_INDEX_AVAILABILITY));
+        intent.putExtra(CalendarContract.Events.ALL_DAY, mEventCursor.getInt(EVENT_INDEX_ALL_DAY) == 1);
+        intent.putExtra(CalendarContract.Events.EVENT_TIMEZONE, mEventCursor.getString(EVENT_INDEX_EVENT_TIMEZONE));
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, mStartMillis);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, mEndMillis);
+        intent.putExtra(EditEventActivity.EXTRA_EVENT_REMINDERS, mReminders);
+        intent.putExtra(EditEventActivity.EXTRA_EVENT_COLOR, mCurrentColor);
+
+        final String allAttendees = Stream.of(mAcceptedAttendees, mDeclinedAttendees, mTentativeAttendees, mNoResponseAttendees)
+                .flatMap(Collection::stream)
+                .map(attendee -> attendee.mEmail)
+                .collect(Collectors.joining());
+        intent.putExtra(Intent.EXTRA_EMAIL, allAttendees);
+
+        startActivity(intent);
+    }
+
     private void showEventColorPickerDialog() {
         if (mColorPickerDialog == null) {
             mColorPickerDialog = EventColorPickerDialog.newInstance(mColors, mCurrentColor,
@@ -1292,13 +1330,7 @@ public class EventInfoFragment extends DialogFragment implements OnCheckedChange
     public void onStop() {
         Activity act = getActivity();
         if (!mEventDeletionStarted && act != null && !act.isChangingConfigurations()) {
-
-            boolean responseSaved = saveResponse();
-            boolean eventColorSaved = saveEventColor();
-            if (saveReminders() || responseSaved || eventColorSaved) {
-                Toast.makeText(getActivity(), R.string.saving_event, Toast.LENGTH_SHORT).show();
-                Utils.sendUpdateWidgetIntent(mContext);
-            }
+            saveEvent();
         }
         super.onStop();
     }
@@ -1315,6 +1347,15 @@ public class EventInfoFragment extends DialogFragment implements OnCheckedChange
             mAttendeesCursor.close();
         }
         super.onDestroy();
+    }
+
+    private void saveEvent() {
+        boolean responseSaved = saveResponse();
+        boolean eventColorSaved = saveEventColor();
+        if (saveReminders() || responseSaved || eventColorSaved) {
+            Toast.makeText(getActivity(), R.string.saving_event, Toast.LENGTH_SHORT).show();
+            Utils.sendUpdateWidgetIntent(mContext);
+        }
     }
 
     /**
@@ -1784,12 +1825,12 @@ public class EventInfoFragment extends DialogFragment implements OnCheckedChange
                 setVisibilityCommon(view, R.id.organizer_container, View.GONE);
             }
             mHasAttendeeData = mEventCursor.getInt(EVENT_INDEX_HAS_ATTENDEE_DATA) != 0;
-            mCanModifyCalendar = mEventCursor.getInt(EVENT_INDEX_ACCESS_LEVEL)
+            mCanModifyCalendar = mEventCursor.getInt(EVENT_INDEX_CALENDAR_ACCESS_LEVEL)
                     >= Calendars.CAL_ACCESS_CONTRIBUTOR;
             // TODO add "|| guestCanModify" after b/1299071 is fixed
             mCanModifyEvent = mCanModifyCalendar && mIsOrganizer;
             mIsBusyFreeCalendar =
-                    mEventCursor.getInt(EVENT_INDEX_ACCESS_LEVEL) == Calendars.CAL_ACCESS_FREEBUSY;
+                    mEventCursor.getInt(EVENT_INDEX_CALENDAR_ACCESS_LEVEL) == Calendars.CAL_ACCESS_FREEBUSY;
 
             if (!mIsBusyFreeCalendar) {
 
