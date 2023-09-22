@@ -15,10 +15,10 @@ android {
     compileSdk 33
 
     defaultConfig {
-        minSdk 21
+        minSdk 26
         targetSdk 33
-        versionCode 34
-        versionName "1.0.34"
+        versionCode 36
+        versionName "1.0.36"
         applicationId "ws.xsoh.etar"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
@@ -85,6 +85,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
 }
 
 dependencies {
@@ -101,7 +104,7 @@ dependencies {
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 
     // Coroutines
-    def coroutines_version = "1.6.0"
+    def coroutines_version = "1.7.3"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
