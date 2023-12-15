@@ -16,7 +16,6 @@
 
 package com.android.calendar.event;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
@@ -100,10 +99,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Formatter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
-import java.util.stream.Collectors;
 
 import ws.xsoh.etar.R;
 
@@ -424,12 +421,12 @@ public class EditEventView implements View.OnClickListener, DialogInterface.OnCa
 
     private void setTimezone(String timeZone) {
         mTimezone = timeZone;
-        mStartTime.setTimezone(mTimezone);
-        long timeMillis = mStartTime.normalize();
-        mEndTime.setTimezone(mTimezone);
+        Utils.changeTimezoneOnly(mStartTime, mTimezone);
+        Utils.changeTimezoneOnly(mEndTime, mTimezone);
+        long startMillis = mStartTime.normalize();
         mEndTime.normalize();
 
-        populateTimezone(timeMillis);
+        populateTimezone(startMillis);
     }
 
     private void populateTimezone(long eventStartTime) {
@@ -885,6 +882,9 @@ public class EditEventView implements View.OnClickListener, DialogInterface.OnCa
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setAllDayViewsVisibility(isChecked);
+                if(!isChecked) {
+                    resetToDefaultDuration();
+                }
             }
         });
 
@@ -1431,6 +1431,15 @@ public class EditEventView implements View.OnClickListener, DialogInterface.OnCa
             TimeZone.setDefault(null);
         }
         view.setText(timeString);
+    }
+
+    protected void resetToDefaultDuration() {
+        mEndTime.setDay(mEndTime.getDay() - 1);
+        mEndTime.set(mStartTime.normalize() +
+                     Utils.getDefaultEventDurationInMillis(mActivity));
+        long endMillis = mEndTime.normalize();
+        setDate(mEndDateButton, endMillis);
+        setTime(mEndTimeButton, endMillis);
     }
 
     /**

@@ -262,8 +262,9 @@ class GeneralPreferences : PreferenceFragmentCompat(),
         super.onStop()
     }
 
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
         val a = activity ?: return
+        key ?: return
 
         BackupManager.dataChanged(a.packageName)
 
@@ -404,7 +405,7 @@ class GeneralPreferences : PreferenceFragmentCompat(),
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        when (preference!!.key) {
+        when (preference.key) {
             KEY_COLOR_PREF -> {
                 showColorPickerDialog()
                 return true
@@ -528,8 +529,8 @@ class GeneralPreferences : PreferenceFragmentCompat(),
         const val KEY_ALERTS_POPUP = "preferences_alerts_popup"
         const val KEY_SHOW_CONTROLS = "preferences_show_controls"
         const val KEY_DEFAULT_REMINDER = "preferences_default_reminder"
-        const val NO_REMINDER = -1
-        const val NO_REMINDER_STRING = "-1"
+        const val NO_REMINDER = -2147483648
+        const val NO_REMINDER_STRING = "-2147483648"
         const val REMINDER_DEFAULT_TIME = 10 // in minutes
         const val KEY_USE_CUSTOM_SNOOZE_DELAY = "preferences_custom_snooze_delay"
         const val KEY_DEFAULT_SNOOZE_DELAY = "preferences_default_snooze_delay"
