@@ -70,6 +70,7 @@
     <string name="hint_what">"Esemény neve"</string>
     <string name="hint_where">"Hely"</string>
     <string name="hint_description">"Leírás"</string>
+    <string name="hint_url">"URL"</string>
     <string name="hint_attendees">"Résztvevők"</string>
     <string name="creating_event">"Az esemény létrehozása megtörtént."</string>
     <string name="saving_event">"Az esemény mentve"</string>
@@ -92,6 +93,8 @@
     <string name="privacy_label">Adatvédelem</string>
     <string name="reminders_label">Emlékeztető hozzáad.</string>
     <string name="no_syncable_calendars">Nincs naptár</string>
+    <string name="no_calendars_found">Mégis, hogyan tudna Eseményt rögzíteni úgy, hogy nincs Naptár-alkalmazás a készülékén?</string>
+    <string name="add_calendar">Új naptár</string>
     <string name="view_event_calendar_label">Naptár:</string>
     <string name="view_event_organizer_label">Szervező:</string>
     <string name="choose_event_color_label">Válasszon egy eseményszínt</string>
@@ -322,6 +325,7 @@
     <string name="preferences_calendar_info_category">Naptáradatok</string>
     <string name="preferences_calendar_color">Szín</string>
     <string name="preferences_calendar_visible">Eseménymegjelenítés</string>
+    <string name="preferences_manage_notifications">Az értesítések kezelése</string>
     <string name="preferences_calendar_synchronize">Szinkronizálja ezt a naptárat</string>
     <string name="preferences_calendar_color_warning_title">Figyelmeztetés</string>
     <string name="preferences_calendar_color_warning_message">A színváltoztatás alaphelyzetbe állhat, ha a naptárat újra szinkronizálja.\n\nA DAVx⁵ alkalmazásban a \'Naptárszínek kezelése\' letiltható ennek megelőzése érdekében.</string>
@@ -344,4 +348,7 @@
     <string name="preferences_menu_about">A Naptárról</string>
     <string name="offline_account_name">Offline Naptár</string>
     <string name="after_start_of_event">az esemény kezdete után</string>
+    <string name="preferences_do_not_check_battery_optimization">Ne ellenőrizze az akkuoptimalizálást</string>
+    <string name="preferences_do_not_check_battery_optimization_summary">Csak saját felelősségre!  Az értesítések nem fognak működni, a kisalkalmazás nem frissül, és a háttérszolgáltatások összeomlanak.  De nem fogja újra megkérdezni, hogy engedélyezi-e a háttérszolgáltatást.</string>
+    <string name="calendars">Naptárak</string>
 </resources>

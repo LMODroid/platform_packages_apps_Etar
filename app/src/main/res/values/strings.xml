@@ -39,6 +39,7 @@
 
     <!-- Reminder format strings -->
     <string name="no_reminder_label">None</string>
+    <string name="no_snooze_label">None</string>
     <plurals name="Nminutes">
         <!-- This is the label for a 1-minute reminder. -->
         <item quantity="one">1 minute</item>
@@ -810,4 +811,7 @@
     <!-- Name of notification channel group -->
     <string name="calendars">Calendars</string>
 
+    <string name="discard_event_changes">Do you want to discard changes?</string>
+    <string name="discard">Discard</string>
+    <string name="cancel">Cancel</string>
 </resources>

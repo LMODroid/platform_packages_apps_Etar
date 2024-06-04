@@ -332,5 +332,6 @@
     <string name="offline_account_name">離線日曆</string>
     <string name="after_start_of_event">與事件開始後</string>
     <string name="preferences_do_not_check_battery_optimization">不檢查電池最佳化</string>
+    <string name="preferences_do_not_check_battery_optimization_summary">後果自負！通知將無法運作，小工具將不再更新，背景服務將當掉。但系統不會再次詢問您是否要啟用背景服務。</string>
     <string name="calendars">日曆</string>
 </resources>
