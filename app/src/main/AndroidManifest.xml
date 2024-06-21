@@ -87,7 +87,7 @@
             <meta-data android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
 
-            <meta-data android:name="org.lineageos.etar.dynamic_icons"
+            <meta-data android:name="com.libremobileos.etar.dynamic_icons"
                 android:resource="@array/calendar_icons_dynamic" />
 
         </activity>
@@ -218,7 +218,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="org.lineageos.etar.androidx-startup"
+            android:authorities="com.libremobileos.etar.androidx-startup"
             android:exported="false"
             tools:replace="android:authorities" />
 
