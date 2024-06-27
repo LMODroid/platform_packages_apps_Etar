@@ -166,4 +166,5 @@
     <string name="recurrence_end_date">\"%s غىچە\"<xliff:g id="DATE"/></string>
     <string name="recurrence_end_count_label">چەكلەنگەن قېتىم سانى</string>
     <string name="acessibility_recurrence_choose_end_date_description">ئاخىرلىشىش چېسلاسىنى ئۆزگەرت</string>
+    <string name="cancel">ۋاز كەچ</string>
 </resources>

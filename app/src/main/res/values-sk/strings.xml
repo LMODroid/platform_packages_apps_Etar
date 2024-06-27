@@ -364,4 +364,5 @@
     <string name="preferences_list_add_offline_cancel">Zrušiť</string>
     <string name="preferences_menu_about">O Kalendári</string>
     <string name="offline_account_name">Offline Kalendár</string>
+    <string name="cancel">Zrušiť</string>
 </resources>

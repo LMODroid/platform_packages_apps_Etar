@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Ingen titel)</string>
     <string name="no_reminder_label">Intet</string>
+    <string name="no_snooze_label">Intet</string>
     <plurals name="Nminutes">
         <item quantity="one">1 minut</item>
         <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> minutter</item>
@@ -346,4 +347,5 @@
     <string name="preferences_menu_about">Om Kalender</string>
     <string name="offline_account_name">Offline Kalender</string>
     <string name="after_start_of_event">efter start af begivenhed</string>
+    <string name="cancel">Annuller</string>
 </resources>

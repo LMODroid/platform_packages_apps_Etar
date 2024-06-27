@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Χωρίς τίτλο)</string>
     <string name="no_reminder_label">Καμία</string>
+    <string name="no_snooze_label">Καμία</string>
     <plurals name="Nminutes">
         <item quantity="one">1 λεπτό</item>
         <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> λεπτά</item>
@@ -351,4 +352,5 @@
     <string name="preferences_do_not_check_battery_optimization">Να μη γίνεται έλεγχος για βελτιστοποίηση της μπαταρίας</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Χρησιμοποιήστε το με δική σας ευθύνη! Οι ειδοποιήσεις δε θα λειτουργούν πλέον, το widget δε θα ενημερώνεται πλέον και οι υπηρεσίες παρασκηνίου θα κολλήσουν. Αλλά δε θα ερωτηθείτε ξανά αν θέλετε να ενεργοποιήσετε την υπηρεσία παρασκηνίου.</string>
     <string name="calendars">Ημερολόγια</string>
+    <string name="cancel">Ακύρωση</string>
 </resources>

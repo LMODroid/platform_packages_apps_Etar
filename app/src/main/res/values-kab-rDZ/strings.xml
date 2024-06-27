@@ -110,4 +110,5 @@
     <string name="preferences_list_add_offline_button">Rnu awitay</string>
     <string name="preferences_list_add_offline_name">Isem</string>
     <string name="preferences_list_add_offline_cancel">Sefsex</string>
+    <string name="cancel">Sefex</string>
 </resources>

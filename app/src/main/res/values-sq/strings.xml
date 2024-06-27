@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="date">%1$s</xliff:g>, <xliff:g id="time_interval">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Pa titull)</string>
     <string name="no_reminder_label">Asnjë</string>
+    <string name="no_snooze_label">Asnjë</string>
     <plurals name="Nminutes">
         <item quantity="one">1 minutë</item>
         <item quantity="other"><xliff:g id="count">%d</xliff:g> minuta</item>
@@ -351,4 +352,5 @@
     <string name="preferences_do_not_check_battery_optimization">Mos e kontrolloni optimizimin e baterisë</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Përdoreni në rrezikun tuaj! Njoftimet nuk do të funksionojnë më, miniaplikacioni nuk do të përditësohet më dhe shërbimet e sfondit do të prishen. Por nuk do të pyeteni përsëri nëse dëshironi të aktivizoni shërbimin e sfondit.</string>
     <string name="calendars">Kalendarët</string>
+    <string name="cancel">Anullo</string>
 </resources>

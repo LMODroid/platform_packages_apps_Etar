@@ -226,4 +226,5 @@
         <item quantity="other">Fir <xliff:g id="event_count">%d</xliff:g> Rendezvousen</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">Schlussdatum änneren</string>
+    <string name="cancel">Ofbriechen</string>
 </resources>

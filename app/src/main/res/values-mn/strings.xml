@@ -226,4 +226,5 @@
         <item quantity="other"><xliff:g id="EVENT_COUNT">%d</xliff:g> үйл явдалд</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">дуусах огноог өөрчлөх</string>
+    <string name="cancel">Цуцлах</string>
 </resources>

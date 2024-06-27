@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="date">%1$s</xliff:g>, <xliff:g id="time_interval">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Dim teitl)</string>
     <string name="no_reminder_label">Dim</string>
+    <string name="no_snooze_label">Dim</string>
     <plurals name="Nminutes">
         <item quantity="zero"><xliff:g id="count">%d</xliff:g> munudau</item>
         <item quantity="one">1 munud</item>
@@ -413,4 +414,5 @@
     <string name="preferences_menu_about">Ynghylch Calendr</string>
     <string name="offline_account_name">Calendr All-lein</string>
     <string name="after_start_of_event">ar ôl dechrau digwyddiad</string>
+    <string name="cancel">Diddymu</string>
 </resources>

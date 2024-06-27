@@ -211,4 +211,5 @@
         <item quantity="other">ສໍາລັບ <xliff:g id="EVENT_COUNT">%d</xliff:g> ນັດໝາຍ</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">ປ່ຽນວັນສິ້ນສຸດ</string>
+    <string name="cancel">ຍົກເລີກ</string>
 </resources>

@@ -211,4 +211,5 @@
         <item quantity="other"><xliff:g id="EVENT_COUNT">%d</xliff:g>的活動</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">更改結束日期</string>
+    <string name="cancel">取消</string>
 </resources>

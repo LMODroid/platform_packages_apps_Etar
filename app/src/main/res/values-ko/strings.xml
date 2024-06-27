@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(제목 없음)</string>
     <string name="no_reminder_label">없음</string>
+    <string name="no_snooze_label">없음</string>
     <plurals name="Nminutes">
         <item quantity="other"><xliff:g id="COUNT">%d</xliff:g>분</item>
     </plurals>
@@ -332,4 +333,5 @@
     <string name="after_start_of_event">일정 시작 후</string>
     <string name="preferences_do_not_check_battery_optimization">배터리 최적화 확인 안함</string>
     <string name="calendars">캘린더</string>
+    <string name="cancel">취소</string>
 </resources>

@@ -241,4 +241,5 @@
         <item quantity="other">За <xliff:g id="EVENT_COUNT">%d</xliff:g> догађаја</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">промена крајњег датума</string>
+    <string name="cancel">Откажи</string>
 </resources>

@@ -215,4 +215,5 @@
         <item quantity="other">Okwemicimbi engu-<xliff:g id="EVENT_COUNT">%d</xliff:g></item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">shintsha idethi yokugcina</string>
+    <string name="cancel">Khansela</string>
 </resources>

@@ -211,4 +211,5 @@
         <item quantity="other">សម្រាប់ <xliff:g id="EVENT_COUNT">%d</xliff:g> ព្រឹត្តិការណ៍</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">ប្ដូរ​កាលបរិច្ឆេទ​បញ្ចប់</string>
+    <string name="cancel">បោះ​បង់​</string>
 </resources>

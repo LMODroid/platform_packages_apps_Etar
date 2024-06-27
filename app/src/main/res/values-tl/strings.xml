@@ -226,4 +226,5 @@
         <item quantity="other">Para sa <xliff:g id="EVENT_COUNT">%d</xliff:g> (na) kaganapan</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">baguhin ang petsa ng pagtatapos</string>
+    <string name="cancel">Kanselahin</string>
 </resources>

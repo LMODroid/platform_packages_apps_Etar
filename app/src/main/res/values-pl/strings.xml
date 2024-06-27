@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Bez tytułu)</string>
     <string name="no_reminder_label">Brak</string>
+    <string name="no_snooze_label">Brak</string>
     <plurals name="Nminutes">
         <item quantity="one">1 minuta</item>
         <item quantity="few"><xliff:g id="COUNT">%d</xliff:g> minuty</item>
@@ -386,4 +387,7 @@
     <string name="preferences_do_not_check_battery_optimization">Nie sprawdzaj optymalizacji baterii</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Używasz na własne ryzyko! Powiadomienia przestaną działać, widżet nie będzie aktualizowany, a usługi działające w tle ulegną awarii. Nie będzie ponownego zapytania, czy chcesz włączyć usługę działającą w tle.</string>
     <string name="calendars">Kalendarze</string>
+    <string name="discard_event_changes">Czy chcesz odrzucić zmiany?</string>
+    <string name="discard">Odrzuć</string>
+    <string name="cancel">Anuluj</string>
 </resources>

@@ -256,4 +256,5 @@
         <item quantity="other">עבור <xliff:g id="EVENT_COUNT">%d</xliff:g> אירועים</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">שינוי של תאריך הסיום</string>
+    <string name="cancel">ביטול</string>
 </resources>

@@ -241,4 +241,5 @@
         <item quantity="other"><xliff:g id="EVENT_COUNT">%d</xliff:g> notikumos</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">mainīt beigu datumu</string>
+    <string name="cancel">Atcelt</string>
 </resources>

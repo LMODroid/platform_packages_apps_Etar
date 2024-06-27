@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>，<xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">（无标题）</string>
     <string name="no_reminder_label">无</string>
+    <string name="no_snooze_label">无</string>
     <plurals name="Nminutes">
         <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> 分钟</item>
     </plurals>
@@ -334,4 +335,7 @@
     <string name="preferences_do_not_check_battery_optimization">不要检查电池优化</string>
     <string name="preferences_do_not_check_battery_optimization_summary">风险自担！通知将不再起作用，小部件将不再更新，后台服务将崩溃。但系统不会再次询问您是否要启用后台服务。</string>
     <string name="calendars">日历</string>
+    <string name="discard_event_changes">您想放弃更改吗？</string>
+    <string name="discard">放弃</string>
+    <string name="cancel">取消</string>
 </resources>

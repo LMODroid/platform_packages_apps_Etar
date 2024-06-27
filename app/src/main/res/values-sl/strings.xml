@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Brez naslova)</string>
     <string name="no_reminder_label">Brez</string>
+    <string name="no_snooze_label">Brez</string>
     <plurals name="Nminutes">
         <item quantity="one">1 minuta</item>
         <item quantity="two"><xliff:g id="count">%d</xliff:g> minuti</item>
@@ -385,4 +386,7 @@
     <string name="preferences_do_not_check_battery_optimization">Ne preveri optimizacije baterije</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Uporaba na lastno odgovornost! Obvestila ne bodo več delovala, pripomočki se ne bodo več posodabljali in storitve v ozadju se bodo sesule. Ampak ne boste več vprašani, če želite omogočiti storitev v ozadju.</string>
     <string name="calendars">Koledarji</string>
+    <string name="discard_event_changes">Ali želite zavreči spremembe?</string>
+    <string name="discard">Zavrzi</string>
+    <string name="cancel">Prekliči</string>
 </resources>

@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Нет заголовка)</string>
     <string name="no_reminder_label">Нет</string>
+    <string name="no_snooze_label">Нет</string>
     <plurals name="Nminutes">
         <item quantity="one">1 мин.</item>
         <item quantity="few"><xliff:g id="COUNT">%d</xliff:g> мин.</item>
@@ -386,4 +387,7 @@
     <string name="preferences_do_not_check_battery_optimization">Не проверять оптимизацию батареи</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Используйте на свой страх и риск! Уведомления больше не будут работать, виджеты не будут обновляться, а фоновые службы будут сбоить. Но вас больше не спросят, хотите ли вы включить фоновую службу.</string>
     <string name="calendars">Календари</string>
+    <string name="discard_event_changes">Отменить изменения?</string>
+    <string name="discard">Отменить</string>
+    <string name="cancel">Отмена</string>
 </resources>

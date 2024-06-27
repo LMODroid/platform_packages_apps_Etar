@@ -226,4 +226,5 @@
         <item quantity="other">بۆ <xliff:g id="event_count">%d</xliff:g> ڕووداو</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">گۆڕینی بەرواری تەواوبوون</string>
+    <string name="cancel">هەڵوەشاندنەوە</string>
 </resources>

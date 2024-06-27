@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="date">%1$s</xliff:g>, <xliff:g id="time_interval">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Sem título)</string>
     <string name="no_reminder_label">Nenhum</string>
+    <string name="no_snooze_label">Nenhum</string>
     <plurals name="Nminutes">
         <item quantity="one">1 minuto</item>
         <item quantity="other"><xliff:g id="count">%d</xliff:g> minutos</item>
@@ -344,4 +345,5 @@
     <string name="preferences_menu_about">Acerca do Calendário</string>
     <string name="offline_account_name">Calendário local</string>
     <string name="after_start_of_event">após o início do evento</string>
+    <string name="cancel">Cancelar</string>
 </resources>

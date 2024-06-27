@@ -256,4 +256,5 @@
         <item quantity="other">Vykstant <xliff:g id="EVENT_COUNT">%d</xliff:g> įvyk.</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">keisti pabaigos datą</string>
+    <string name="cancel">Atšaukti</string>
 </resources>

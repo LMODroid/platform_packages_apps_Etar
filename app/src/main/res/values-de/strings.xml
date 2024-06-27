@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Kein Titel)</string>
     <string name="no_reminder_label">Keine</string>
+    <string name="no_snooze_label">Keine</string>
     <plurals name="Nminutes">
         <item quantity="one">1 Minute</item>
         <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> Minuten</item>
@@ -351,4 +352,5 @@
     <string name="preferences_do_not_check_battery_optimization">Akku-Optimierung nicht überprüfen</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Verwendung auf eigene Gefahr! Benachrichtigungen werden nicht mehr funktionieren, Widgets werden nicht mehr aktualisiert und Hintergrunddienste werden abstürzen. Aber du wirst nicht mehr gefragt werden, ob du den Hintergrunddienst aktivieren möchtest.</string>
     <string name="calendars">Kalender</string>
+    <string name="cancel">Abbrechen</string>
 </resources>

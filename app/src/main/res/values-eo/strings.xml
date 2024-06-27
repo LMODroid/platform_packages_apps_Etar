@@ -70,4 +70,5 @@
         <item quantity="one">Por <xliff:g id="event_count">%d</xliff:g> evento</item>
         <item quantity="other">Por <xliff:g id="event_count">%d</xliff:g> eventoj</item>
     </plurals>
+    <string name="cancel">Nuligi</string>
 </resources>

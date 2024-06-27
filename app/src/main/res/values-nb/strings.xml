@@ -226,4 +226,5 @@
         <item quantity="other">For <xliff:g id="EVENT_COUNT">%d</xliff:g> aktiviteter</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">endre sluttdato</string>
+    <string name="cancel">Avbryt</string>
 </resources>

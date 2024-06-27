@@ -211,4 +211,5 @@
         <item quantity="other">ဖြစ်ရပ်များ <xliff:g id="EVENT_COUNT">%d</xliff:g> အတွက်</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">ပြီးဆုံးရက်စွဲကို ပြောင်းရန်</string>
+    <string name="cancel">ပယ်ဖျက်ရန်</string>
 </resources>

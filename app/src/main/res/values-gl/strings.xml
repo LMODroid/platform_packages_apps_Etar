@@ -332,4 +332,5 @@
     <string name="preferences_list_add_offline_cancel">Cancelar</string>
     <string name="preferences_menu_about">Acerca do calendario</string>
     <string name="offline_account_name">Calendario sen conexión</string>
+    <string name="cancel">Cancelar</string>
 </resources>

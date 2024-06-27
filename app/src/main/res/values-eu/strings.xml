@@ -226,4 +226,5 @@
         <item quantity="other"><xliff:g id="EVENT_COUNT">%d</xliff:g> gertaeratan</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">aldatu amaiera-data</string>
+    <string name="cancel">Utzi</string>
 </resources>

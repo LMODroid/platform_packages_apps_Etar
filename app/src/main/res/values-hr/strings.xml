@@ -241,4 +241,5 @@
         <item quantity="other">Nakon <xliff:g id="EVENT_COUNT">%d</xliff:g> ponavljanja</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">promjena datuma završetka</string>
+    <string name="cancel">Odustani</string>
 </resources>

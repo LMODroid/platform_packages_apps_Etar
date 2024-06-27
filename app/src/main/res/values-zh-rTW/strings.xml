@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>，<xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(無標題)</string>
     <string name="no_reminder_label">無</string>
+    <string name="no_snooze_label">無</string>
     <plurals name="Nminutes">
         <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> 分鐘</item>
     </plurals>
@@ -334,4 +335,7 @@
     <string name="preferences_do_not_check_battery_optimization">不檢查電池最佳化</string>
     <string name="preferences_do_not_check_battery_optimization_summary">後果自負！通知將無法運作，小工具將不再更新，背景服務將當掉。但系統不會再次詢問您是否要啟用背景服務。</string>
     <string name="calendars">日曆</string>
+    <string name="discard_event_changes">您要捨棄所作的變更嗎？</string>
+    <string name="discard">捨棄</string>
+    <string name="cancel">取消</string>
 </resources>

@@ -226,4 +226,5 @@
         <item quantity="other">Vir <xliff:g id="EVENT_COUNT">%d</xliff:g> geleenthede</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">verander einddatum</string>
+    <string name="cancel">Kanselleer</string>
 </resources>

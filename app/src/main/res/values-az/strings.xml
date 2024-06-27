@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Başlıq yoxdur)</string>
     <string name="no_reminder_label">Heç biri</string>
+    <string name="no_snooze_label">Heç biri</string>
     <plurals name="Nminutes">
         <item quantity="one">1 dəqiqə</item>
         <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> dəqiqə</item>
@@ -351,4 +352,7 @@
     <string name="preferences_do_not_check_battery_optimization">Batareya optimallaşdırmasını yoxlama</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Öz riskinizlə istifadə edin! Bildirişlər artıq işləməyəcək, vicet artıq güncəllənməyəcək və arxaplan xidmətləri çökəcək. Ancaq arxaplan xidmətlərini fəallaşdırmaq istəyib-istəmədiyiniz bir daha soruşulmayacaq.</string>
     <string name="calendars">Təqvimlər</string>
+    <string name="discard_event_changes">Dəyişiklikləri ləğv etmək istəyirsiniz?</string>
+    <string name="discard">Ləğv et</string>
+    <string name="cancel">Ləğv et</string>
 </resources>

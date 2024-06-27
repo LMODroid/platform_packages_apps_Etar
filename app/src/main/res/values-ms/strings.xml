@@ -211,4 +211,5 @@
         <item quantity="other">Untuk <xliff:g id="EVENT_COUNT">%d</xliff:g> acara</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">tukar tarikh akhir</string>
+    <string name="cancel">Batal</string>
 </resources>

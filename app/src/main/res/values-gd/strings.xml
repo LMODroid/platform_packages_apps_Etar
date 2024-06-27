@@ -364,4 +364,5 @@
     <string name="preferences_list_add_offline_cancel">Sguir dheth</string>
     <string name="preferences_menu_about">Mun mhìosachan</string>
     <string name="offline_account_name">Mìosachan far loidhne</string>
+    <string name="cancel">Sguir dheth</string>
 </resources>

@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Cence titul)</string>
     <string name="no_reminder_label">Nissun</string>
+    <string name="no_snooze_label">Nissun</string>
     <plurals name="Nminutes">
         <item quantity="one">1 minût</item>
         <item quantity="other"><xliff:g id="count">%d</xliff:g> minûts</item>
@@ -351,4 +352,7 @@
     <string name="preferences_do_not_check_battery_optimization">No sta controlâ la otimizazion de batarie</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Doprilu a to risi e pericul! Lis notifichis no funzionaran plui, i widget no si inzornaran plui e i servizis in sotfont a colassaran. Ma no ti vignarà domandât di gnûf se tu desideris ativâi servizis in sotfont.</string>
     <string name="calendars">Calendaris</string>
+    <string name="discard_event_changes">Desideristu scartâ lis modifichis?</string>
+    <string name="discard">Scarte</string>
+    <string name="cancel">Anule</string>
 </resources>

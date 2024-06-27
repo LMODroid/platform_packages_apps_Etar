@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Fără titlu)</string>
     <string name="no_reminder_label">Niciunul</string>
+    <string name="no_snooze_label">Niciunul</string>
     <plurals name="Nminutes">
         <item quantity="one">1 minut</item>
         <item quantity="few"><xliff:g id="COUNT">%d</xliff:g> (de) minute</item>
@@ -368,4 +369,7 @@
     <string name="preferences_do_not_check_battery_optimization">Nu verifica optimizarea bateriei</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Utilizați pe propriul risc! Notificările nu vor mai funcționa, widget-urile nu se vor mai actualiza și serviciile de fundal se vor bloca. Dar nu veți mai fi întrebat din nou dacă vreți să activați serviciul de fundal.</string>
     <string name="calendars">Calendare</string>
+    <string name="discard_event_changes">Doriți să renunțați la modificări?</string>
+    <string name="discard">Renunţaţi</string>
+    <string name="cancel">Anulați</string>
 </resources>

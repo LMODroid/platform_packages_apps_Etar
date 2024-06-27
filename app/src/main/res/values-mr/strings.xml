@@ -226,4 +226,5 @@
         <item quantity="other"><xliff:g id="EVENT_COUNT">%d</xliff:g> इव्हेंटसाठी</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">समाप्ती तारीख बदला</string>
+    <string name="cancel">रद्द करा</string>
 </resources>

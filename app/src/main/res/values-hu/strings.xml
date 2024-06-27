@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Nincs cím)</string>
     <string name="no_reminder_label">Egy sem</string>
+    <string name="no_snooze_label">Egy sem</string>
     <plurals name="Nminutes">
         <item quantity="one">1 perc</item>
         <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> perc</item>
@@ -351,4 +352,7 @@
     <string name="preferences_do_not_check_battery_optimization">Ne ellenőrizze az akkuoptimalizálást</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Csak saját felelősségre!  Az értesítések nem fognak működni, a kisalkalmazás nem frissül, és a háttérszolgáltatások összeomlanak.  De nem fogja újra megkérdezni, hogy engedélyezi-e a háttérszolgáltatást.</string>
     <string name="calendars">Naptárak</string>
+    <string name="discard_event_changes">Elveti a változtatásokat?</string>
+    <string name="discard">Elvetés</string>
+    <string name="cancel">Mégse</string>
 </resources>

@@ -226,4 +226,5 @@
         <item quantity="other">Pour <xliff:g id="EVENT_COUNT">%d</xliff:g> événements</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">modifier la date de fin</string>
+    <string name="cancel">Annuler</string>
 </resources>

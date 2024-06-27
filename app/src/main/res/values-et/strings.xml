@@ -283,4 +283,5 @@
     <string name="preferences_list_calendar_summary_sync_off">Sünkroniseerimata</string>
     <string name="preferences_list_calendar_summary_invisible">Sündmusi ei kuvata</string>
     <string name="preferences_list_general">Üldseaded</string>
+    <string name="cancel">Tühista</string>
 </resources>

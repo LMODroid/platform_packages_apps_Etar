@@ -226,4 +226,5 @@
         <item quantity="other">ለ<xliff:g id="EVENT_COUNT">%d</xliff:g> ክስተቶች</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">የመጨረሻውን ቀን ቀይር</string>
+    <string name="cancel">ይቅር</string>
 </resources>

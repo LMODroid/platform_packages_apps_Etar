@@ -226,4 +226,5 @@
         <item quantity="other"><xliff:g id="EVENT_COUNT">%d</xliff:g> நிகழ்வுகளுக்கு</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">முடிவு தேதியை மாற்று</string>
+    <string name="cancel">ரத்துசெய்</string>
 </resources>

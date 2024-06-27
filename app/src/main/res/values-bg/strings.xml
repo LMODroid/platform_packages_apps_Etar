@@ -332,4 +332,5 @@
     <string name="preferences_list_add_offline_cancel">Отказ</string>
     <string name="preferences_menu_about">Всичко за Календар</string>
     <string name="offline_account_name">Офлайн календар</string>
+    <string name="cancel">Отказ</string>
 </resources>

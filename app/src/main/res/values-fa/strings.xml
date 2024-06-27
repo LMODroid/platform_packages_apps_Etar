@@ -227,4 +227,5 @@
         <item quantity="other">برای <xliff:g id="EVENT_COUNT">%d</xliff:g> رویداد</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">تغییر تاریخ پایان</string>
+    <string name="cancel">لغو</string>
 </resources>

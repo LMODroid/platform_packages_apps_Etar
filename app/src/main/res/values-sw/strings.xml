@@ -226,4 +226,5 @@
         <item quantity="other">Kwa matukio <xliff:g id="EVENT_COUNT">%d</xliff:g></item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">badilisha tarehe ya mwisho</string>
+    <string name="cancel">Ghairi</string>
 </resources>

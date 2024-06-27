@@ -23,6 +23,7 @@
     <string name="date_time_fmt">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME_INTERVAL">%2$s</xliff:g>"</string>
     <string name="no_title_label">(Ei otsikkoa)</string>
     <string name="no_reminder_label">Ei mitään</string>
+    <string name="no_snooze_label">Ei mitään</string>
     <plurals name="Nminutes">
         <item quantity="one">1 minuutti</item>
         <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> minuuttia</item>
@@ -340,4 +341,5 @@
     <string name="preferences_list_add_offline_cancel">Peruuta</string>
     <string name="preferences_menu_about">Tietoja kalenterista</string>
     <string name="offline_account_name">Offline-kalenteri</string>
+    <string name="cancel">Peruuta</string>
 </resources>

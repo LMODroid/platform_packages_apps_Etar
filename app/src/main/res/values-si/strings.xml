@@ -226,4 +226,5 @@
         <item quantity="other">සිදුවීම් <xliff:g id="EVENT_COUNT">%d</xliff:g> සඳහා</item>
     </plurals>
     <string name="acessibility_recurrence_choose_end_date_description">අවසන්වන දිනය වෙනස් කරන්න</string>
+    <string name="cancel">අවලංගු කරන්න</string>
 </resources>
