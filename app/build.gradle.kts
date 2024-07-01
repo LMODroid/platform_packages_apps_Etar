@@ -1,9 +1,26 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.lineageos.generatebp.GenerateBpPlugin
+import org.lineageos.generatebp.GenerateBpPluginExtension
+import org.lineageos.generatebp.models.Module
 
 plugins {
 	id("com.android.application")
 	id("org.jetbrains.kotlin.android")
 	id("org.ec4j.editorconfig")
+}
+
+apply {
+	plugin<GenerateBpPlugin>()
+}
+
+buildscript {
+	repositories {
+		maven("https://raw.githubusercontent.com/lineage-next/gradle-generatebp/v1.9/.m2")
+	}
+
+	dependencies {
+		classpath("org.lineageos:gradle-generatebp:+")
+	}
 }
 
 editorconfig {
@@ -18,8 +35,8 @@ android {
 	defaultConfig {
 		minSdk = 26
 		targetSdk = 34
-		versionCode = 45
-		versionName = "1.0.45"
+		versionCode = 46
+		versionName = "1.0.46"
 		applicationId = "ws.xsoh.etar"
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 	}
@@ -49,10 +66,6 @@ android {
 				defaultConfig.applicationId + ".debug.CalendarRecentSuggestionsProvider"
 			)
 		}
-	}
-
-	buildFeatures {
-		viewBinding = true
 	}
 
 	/*
@@ -137,6 +150,21 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.dmfs/lib-recur
 	implementation("org.dmfs:lib-recur:0.16.0")
 
+	// lifecycle
+	val lifecycle_version = "2.7.0"
+	implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+}
+
+configure<GenerateBpPluginExtension> {
+	targetSdk.set(android.defaultConfig.targetSdk!!)
+	availableInAOSP.set { module: Module ->
+		when {
+			module.group.startsWith("androidx") -> true
+			module.group.startsWith("com.google") -> true
+			module.group.startsWith("org.jetbrains") -> true
+			else -> false
+		}
+	}
 }
 
 tasks.preBuild.dependsOn(":aarGen")

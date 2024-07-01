@@ -26,19 +26,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical">
 
-        <!-- CALENDAR DISPLAY for existing events -->
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/calendar_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="calendar_textview,calendar_textview_secondary,change_color_new_event" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/calendar_selector_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="calendars_spinner,change_color_new_event" />
-
         <androidx.constraintlayout.widget.Group
             android:id="@+id/timezone_button_row"
             android:layout_width="wrap_content"
@@ -93,61 +80,34 @@
 
         <Spinner
             android:id="@+id/calendars_spinner"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="32dp"
             android:gravity="center_vertical"
-            android:prompt="@string/edit_event_calendar_label"
             android:paddingStart="0dp"
             android:paddingEnd="2dp"
+            android:prompt="@string/edit_event_calendar_label"
             app:layout_constraintBottom_toBottomOf="@+id/calendar_selector_group_icon"
+            app:layout_constraintEnd_toStartOf="@+id/change_color"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/calendar_selector_group_icon"
             app:layout_constraintTop_toTopOf="@+id/calendar_selector_group_icon" />
 
-        <TextView
-            android:id="@+id/calendar_textview"
-            style="@style/TextAppearance.EditEvent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="8dp"
-            android:textColor="?attr/light_dark"
-            app:layout_constraintStart_toEndOf="@+id/calendar_selector_group_icon"
-            app:layout_constraintTop_toBottomOf="@id/view"
-            tools:layout_conversion_absoluteHeight="24dp"
-            tools:layout_conversion_absoluteWidth="363dp" />
-
-        <TextView
-            android:id="@+id/calendar_textview_secondary"
-            style="@style/TextAppearance.EditEvent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="4dp"
-            android:textColor="?attr/light_dark"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/view1"
-            app:layout_constraintStart_toEndOf="@+id/calendar_selector_group_icon"
-            app:layout_constraintTop_toBottomOf="@+id/calendar_textview"
-            tools:layout_conversion_absoluteHeight="19dp"
-            tools:layout_conversion_absoluteWidth="363dp" />
-
         <ImageButton
-            android:id="@+id/change_color_new_event"
-            android:layout_width="0dp"
+            android:id="@+id/change_color"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="20dp"
-            android:background="?android:attr/selectableItemBackground"
+            android:layout_marginEnd="32dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/choose_event_color_label"
             android:enabled="false"
             android:scaleType="center"
             android:src="@drawable/ic_colorpicker"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/calendar_selector_group_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/calendars_spinner"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/view" />
+            app:layout_constraintTop_toTopOf="@+id/calendars_spinner"
+            tools:visibility="visible" />
 
         <View
             android:id="@+id/view1"
