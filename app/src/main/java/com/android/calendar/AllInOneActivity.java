@@ -95,7 +95,6 @@ import com.google.android.material.navigation.NavigationView;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -477,34 +476,19 @@ public class AllInOneActivity extends AbstractCalendarActivity implements EventH
         if (!mIsTabletConfig) {
             mCalendarToolbarHandler = new CalendarToolbarHandler(this, mToolbar, viewType);
         } else {
-            int titleResource;
-            switch (viewType) {
-                case ViewType.AGENDA:
-                    titleResource = R.string.agenda_view;
-                    break;
-                case ViewType.DAY:
-                    titleResource = R.string.day_view;
-                    break;
-                case ViewType.MONTH:
-                    titleResource = R.string.month_view;
-                    break;
-                case ViewType.WEEK:
-                default:
-                    titleResource = R.string.week_view;
-                    break;
-            }
+            int titleResource = switch (viewType) {
+                case ViewType.AGENDA -> R.string.agenda_view;
+                case ViewType.DAY -> R.string.day_view;
+                case ViewType.MONTH -> R.string.month_view;
+                default -> R.string.week_view;
+            };
             mToolbar.setTitle(titleResource);
         }
-        // mToolbar.setTitle(getTitle());
         mToolbar.setNavigationIcon(R.drawable.ic_menu_navigator);
         setSupportActionBar(mToolbar);
 
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AllInOneActivity.this.openDrawer();
-            }
-        });
+        mToolbar.setNavigationOnClickListener(v -> AllInOneActivity.this.openDrawer());
+        mToolbar.setOnClickListener(v -> goToDate());
         mActionBar = getSupportActionBar();
         if (mActionBar == null) return;
         mActionBar.setDisplayHomeAsUpEnabled(true);
@@ -546,13 +530,6 @@ public class AllInOneActivity extends AbstractCalendarActivity implements EventH
         });
     }
 
-
-
-    private void hideActionBar() {
-        if (mActionBar == null) return;
-        mActionBar.hide();
-    }
-
     private void showActionBar() {
         if (mActionBar == null) return;
         mActionBar.show();
@@ -565,7 +542,7 @@ public class AllInOneActivity extends AbstractCalendarActivity implements EventH
             List<String> path = data.getPathSegments();
             if (path.size() == 2 && path.get(0).equals("events")) {
                 try {
-                    mViewEventId = Long.valueOf(data.getLastPathSegment());
+                    mViewEventId = Long.parseLong(data.getLastPathSegment());
                     if (mViewEventId != -1) {
                         mIntentEventStartMillis = intent.getLongExtra(EXTRA_EVENT_BEGIN_TIME, 0);
                         mIntentEventEndMillis = intent.getLongExtra(EXTRA_EVENT_END_TIME, 0);
@@ -924,33 +901,7 @@ public class AllInOneActivity extends AbstractCalendarActivity implements EventH
             mController.sendEvent(this, EventType.GO_TO, t, null, t, -1, viewType, extras, null, null);
             return true;
         } else if (itemId == R.id.action_goto) {
-            Time todayTime;
-            t = new Time(mTimeZone);
-            t.set(mController.getTime());
-            todayTime = new Time(mTimeZone);
-            todayTime.set(System.currentTimeMillis());
-            if (todayTime.getMonth() == t.getMonth()) {
-                t = todayTime;
-            }
-
-            DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
-
-                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    Time selectedTime = new Time(mTimeZone);
-                    selectedTime.set(System.currentTimeMillis());  // Needed for recalc function in DayView(time + gmtoff)
-                    selectedTime.setYear(year);
-                    selectedTime.setMonth(monthOfYear);
-                    selectedTime.setDay(dayOfMonth);
-
-                    long extras = CalendarController.EXTRA_GOTO_TIME | CalendarController.EXTRA_GOTO_DATE;
-                    mController.sendEvent(this, EventType.GO_TO, selectedTime, null, selectedTime, -1, ViewType.CURRENT, extras, null, null);
-                }
-            };
-            DatePickerDialog datePickerDialog = new DatePickerDialog(this, datePickerListener,
-                    t.getYear(), t.getMonth(), t.getDay());
-                    datePickerDialog.getDatePicker().setFirstDayOfWeek(Utils.getFirstDayOfWeekAsCalendar(this));
-                    datePickerDialog.show();
-
+            goToDate();
         } else if (itemId == R.id.action_hide_controls) {
             mHideControls = !mHideControls;
             Utils.setSharedPreference(
@@ -988,34 +939,27 @@ public class AllInOneActivity extends AbstractCalendarActivity implements EventH
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         final int itemId = item.getItemId();
-        switch (itemId) {
-            case R.id.day_menu_item:
-                if (mCurrentView != ViewType.DAY) {
-                    mController.sendEvent(this, EventType.GO_TO, null, null, -1, ViewType.DAY);
-                }
-                break;
-            case R.id.week_menu_item:
-                if (mCurrentView != ViewType.WEEK) {
-                    mController.sendEvent(this, EventType.GO_TO, null, null, -1, ViewType.WEEK);
-                }
-                break;
-            case R.id.month_menu_item:
-                if (mCurrentView != ViewType.MONTH) {
-                    mController.sendEvent(this, EventType.GO_TO, null, null, -1, ViewType.MONTH);
-                }
-                break;
-            case R.id.agenda_menu_item:
-                if (mCurrentView != ViewType.AGENDA) {
-                    mController.sendEvent(this, EventType.GO_TO, null, null, -1, ViewType.AGENDA);
-                }
-                break;
-            case R.id.action_settings:
-                mController.sendEvent(this, EventType.LAUNCH_SETTINGS, null, null, 0, 0);
-                break;
-            case R.id.action_about:
-                Intent intent = new Intent(this, AboutActivity.class);
-                startActivity(intent);
-                break;
+        if (itemId == R.id.day_menu_item) {
+            if (mCurrentView != ViewType.DAY) {
+                mController.sendEvent(this, EventType.GO_TO, null, null, -1, ViewType.DAY);
+            }
+        } else if (itemId == R.id.week_menu_item) {
+            if (mCurrentView != ViewType.WEEK) {
+                mController.sendEvent(this, EventType.GO_TO, null, null, -1, ViewType.WEEK);
+            }
+        } else if (itemId == R.id.month_menu_item) {
+            if (mCurrentView != ViewType.MONTH) {
+                mController.sendEvent(this, EventType.GO_TO, null, null, -1, ViewType.MONTH);
+            }
+        } else if (itemId == R.id.agenda_menu_item) {
+            if (mCurrentView != ViewType.AGENDA) {
+                mController.sendEvent(this, EventType.GO_TO, null, null, -1, ViewType.AGENDA);
+            }
+        } else if (itemId == R.id.action_settings) {
+            mController.sendEvent(this, EventType.LAUNCH_SETTINGS, null, null, 0, 0);
+        } else if (itemId == R.id.action_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
         }
         mDrawerLayout.closeDrawers();
         return true;
@@ -1280,6 +1224,37 @@ public class AllInOneActivity extends AbstractCalendarActivity implements EventH
         } else if (mHomeTime != null) {
             mHomeTime.setVisibility(View.GONE);
         }
+    }
+
+    public void goToDate() {
+        Time t;
+        Time todayTime;
+        t = new Time(mTimeZone);
+        t.set(mController.getTime());
+        todayTime = new Time(mTimeZone);
+        todayTime.set(System.currentTimeMillis());
+        if (todayTime.getMonth() == t.getMonth()) {
+            t = todayTime;
+        }
+
+        DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Time selectedTime = new Time(mTimeZone);
+                selectedTime.set(System.currentTimeMillis());  // Needed for recalc function in DayView(time + gmtoff)
+                selectedTime.setYear(year);
+                selectedTime.setMonth(monthOfYear);
+                selectedTime.setDay(dayOfMonth);
+
+                long extras = CalendarController.EXTRA_GOTO_TIME | CalendarController.EXTRA_GOTO_DATE;
+                mController.sendEvent(this, EventType.GO_TO, selectedTime, null, selectedTime, -1, ViewType.CURRENT, extras, null, null);
+            }
+        };
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, datePickerListener,
+                t.getYear(), t.getMonth(), t.getDay());
+        datePickerDialog.getDatePicker().setFirstDayOfWeek(Utils.getFirstDayOfWeekAsCalendar(this));
+        datePickerDialog.show();
+
     }
 
     @Override

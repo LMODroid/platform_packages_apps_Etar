@@ -112,7 +112,7 @@
     <string name="email_picker_label">Enviar e-mail para</string>
     <string name="event_not_found">"Evento não encontrado."</string>
     <string name="map_label">Mapa</string>
-    <string name="no_map">Não há aplicativos de mapas instalados</string>
+    <string name="no_map">Não há apps de mapas instalados</string>
     <string name="call_label">Ligar</string>
     <string name="quick_response_settings">Respostas rápidas</string>
     <string name="quick_response_settings_summary">Editar respostas padrão quando enviar e-mails para os convidados</string>

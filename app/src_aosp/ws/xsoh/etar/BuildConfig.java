@@ -17,6 +17,6 @@ package ws.xsoh.etar;
 
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.libremobileos.etar";
-
+    public static final String VERSION_NAME = "1.0.47";
     public static final boolean DEBUG = false;
 }

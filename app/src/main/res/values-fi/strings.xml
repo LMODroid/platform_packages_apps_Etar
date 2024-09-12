@@ -341,5 +341,7 @@
     <string name="preferences_list_add_offline_cancel">Peruuta</string>
     <string name="preferences_menu_about">Tietoja kalenterista</string>
     <string name="offline_account_name">Offline-kalenteri</string>
+    <string name="discard_event_changes">Haluatko hylätä muutokset?</string>
+    <string name="discard">Hylkää</string>
     <string name="cancel">Peruuta</string>
 </resources>

@@ -352,5 +352,7 @@
     <string name="preferences_do_not_check_battery_optimization">Ignora l\'ottimizzazione della batteria</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Usa questa funzione a tuo rischio! Le notifiche non funzioneranno più, il widget non si aggiornerà e i servizi in background si bloccheranno. Non ti verrà chiesto di nuovo se vuoi abilitare il servizio in background.</string>
     <string name="calendars">Calendari</string>
+    <string name="discard_event_changes">Vuoi scartare le modifiche?</string>
+    <string name="discard">Annulla</string>
     <string name="cancel">Annulla</string>
 </resources>

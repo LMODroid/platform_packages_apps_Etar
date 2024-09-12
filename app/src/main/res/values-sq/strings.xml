@@ -352,5 +352,7 @@
     <string name="preferences_do_not_check_battery_optimization">Mos e kontrolloni optimizimin e baterisë</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Përdoreni në rrezikun tuaj! Njoftimet nuk do të funksionojnë më, miniaplikacioni nuk do të përditësohet më dhe shërbimet e sfondit do të prishen. Por nuk do të pyeteni përsëri nëse dëshironi të aktivizoni shërbimin e sfondit.</string>
     <string name="calendars">Kalendarët</string>
+    <string name="discard_event_changes">Dëshiron të refuzosh ndryshimet?</string>
+    <string name="discard">Injoro</string>
     <string name="cancel">Anullo</string>
 </resources>

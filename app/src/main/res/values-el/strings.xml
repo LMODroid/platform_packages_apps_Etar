@@ -352,5 +352,7 @@
     <string name="preferences_do_not_check_battery_optimization">Να μη γίνεται έλεγχος για βελτιστοποίηση της μπαταρίας</string>
     <string name="preferences_do_not_check_battery_optimization_summary">Χρησιμοποιήστε το με δική σας ευθύνη! Οι ειδοποιήσεις δε θα λειτουργούν πλέον, το widget δε θα ενημερώνεται πλέον και οι υπηρεσίες παρασκηνίου θα κολλήσουν. Αλλά δε θα ερωτηθείτε ξανά αν θέλετε να ενεργοποιήσετε την υπηρεσία παρασκηνίου.</string>
     <string name="calendars">Ημερολόγια</string>
+    <string name="discard_event_changes">Θέλετε να απορρίψετε τις αλλαγές;</string>
+    <string name="discard">Απόρριψη</string>
     <string name="cancel">Ακύρωση</string>
 </resources>
