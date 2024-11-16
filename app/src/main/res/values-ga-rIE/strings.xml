@@ -14,7 +14,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">Féilire</string>
+    <string name="when_label">Cathain</string>
     <string name="hint_url">"URL"</string>
     <string name="no_calendars_found">Sular féidir leat imeacht a chur leis, ní mór duit féilire amháin ar a laghad a chur le do ghléas</string>
     <string name="duplicate_label">Dúblach</string>
+    <string name="preferences_manage_notifications">Bainistigh fógraí</string>
+    <string name="preferences_do_not_check_battery_optimization">Ná seiceáil leas iomlán a bhaint ceallraí</string>
+    <string name="preferences_do_not_check_battery_optimization_summary">Bain úsáid as ar do phriacal féin! Ní oibreoidh fógraí a thuilleadh, ní nuashonrófar an ghiuirléid a thuilleadh agus tiocfaidh seirbhísí cúlra tuairteála. Ach ní iarrfar ort arís an bhfuil tú ag iarraidh an tseirbhís chúlra a chumasú.</string>
+    <string name="calendars">Féilirí</string>
+    <string name="discard_event_changes">Ar mhaith leat na hathruithe a scriosadh?</string>
+    <string name="discard">Caith amach</string>
 </resources>
