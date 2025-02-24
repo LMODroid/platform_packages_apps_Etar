@@ -16,7 +16,6 @@
 
 package com.android.calendar.alerts;
 
-import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC;
 import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED;
 
 import android.Manifest;
@@ -190,8 +189,6 @@ public class AlertService extends Service {
             return true;
         }
 
-        // Sync CalendarAlerts with global dismiss cache before query it
-        GlobalDismissManager.syncReceiverDismissCache(context);
         Cursor alertCursor = cr.query(CalendarAlerts.CONTENT_URI, ALERT_PROJECTION,
                 (ACTIVE_ALERTS_SELECTION + currentTime), ACTIVE_ALERTS_SELECTION_ARGS,
                 ACTIVE_ALERTS_SORT);
@@ -534,15 +531,13 @@ public class AlertService extends Service {
                 int newState = -1;
                 boolean newAlert = false;
 
-                // Uncomment for the behavior of clearing out alerts after the
-                // events ended. b/1880369
-                //
-                // if (endTime < currentTime) {
-                //     newState = CalendarAlerts.DISMISSED;
-                // } else
+                // clearing out alerts after the events ended. b/1880369
+                if (endTime < currentTime) {
+                    newState = CalendarAlerts.STATE_DISMISSED;
+                }
 
                 // Remove declined events
-                boolean sendAlert = !declined;
+                boolean sendAlert = !declined  && newState != CalendarAlerts.STATE_DISMISSED;
                 // Check for experimental reminder settings.
                 if (remindRespondedOnly) {
                     // If the experimental setting is turned on, then only send
@@ -665,8 +660,6 @@ public class AlertService extends Service {
                     lowPriorityEvents.add(newInfo);
                 }
             }
-            // TODO(psliwowski): move this to account synchronization
-            GlobalDismissManager.processEventIds(context, eventIds.keySet());
         } finally {
             if (alertCursor != null) {
                 alertCursor.close();
@@ -883,13 +876,6 @@ public class AlertService extends Service {
                 }
             }
 
-            // If we dismissed a notification for a new event, then we need to sync the cache when
-            // an ACTION_PROVIDER_CHANGED event has been sent. Unfortunately, the data provider
-            // has a delay of CalendarProvider2.SYNC_UPDATE_BROADCAST_TIMEOUT_MILLIS (ie. 30 sec.)
-            // until it notifies us that the sync adapter has finished.
-            // TODO(psliwowski): Find a quicker way to be notified when the data provider has the
-            // syncId for event.
-            GlobalDismissManager.syncSenderDismissCache(this);
             updateAlertNotification(this);
         } else if (action.equals(Intent.ACTION_TIME_CHANGED)) {
             doTimeChanged();
@@ -943,7 +929,7 @@ public class AlertService extends Service {
                     if (Utils.isUpsideDownCakeOrLater()) {
                         serviceType = FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED;
                     } else {
-                        serviceType = FOREGROUND_SERVICE_TYPE_DATA_SYNC;
+                        serviceType = 0;
                     }
                     ServiceCompat.startForeground(this, 1337, notification, serviceType);
                 } else {
