@@ -52,32 +52,32 @@ android_app {
     kotlincflags: ["-Xjvm-default=all"],
 
     required: [
-        "org.lineageos.etar.allowlist",
-        "initial-package-stopped-states-org.lineageos.etar",
-        "preinstalled-packages-org.lineageos.etar",
+        "com.libremobileos.etar.allowlist",
+        "initial-package-stopped-states-com.libremobileos.etar",
+        "preinstalled-packages-com.libremobileos.etar",
     ],
 }
 
 prebuilt_etc {
-    name: "org.lineageos.etar.allowlist",
+    name: "com.libremobileos.etar.allowlist",
     product_specific: true,
     sub_dir: "sysconfig",
-    src: "org.lineageos.etar.allowlist.xml",
+    src: "com.libremobileos.etar.allowlist.xml",
     filename_from_src: true,
 }
 
 prebuilt_etc {
-    name: "initial-package-stopped-states-org.lineageos.etar",
+    name: "initial-package-stopped-states-com.libremobileos.etar",
     product_specific: true,
     sub_dir: "sysconfig",
-    src: "initial-package-stopped-states-org.lineageos.etar.xml",
+    src: "initial-package-stopped-states-com.libremobileos.etar.xml",
     filename_from_src: true,
 }
 
 prebuilt_etc {
-    name: "preinstalled-packages-org.lineageos.etar",
+    name: "preinstalled-packages-com.libremobileos.etar",
     product_specific: true,
     sub_dir: "sysconfig",
-    src: "preinstalled-packages-org.lineageos.etar.xml",
+    src: "preinstalled-packages-com.libremobileos.etar.xml",
     filename_from_src: true,
 }
