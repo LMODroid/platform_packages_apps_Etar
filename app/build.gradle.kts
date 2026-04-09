@@ -25,9 +25,9 @@ android {
 
 	defaultConfig {
 		minSdk = 23
-		targetSdk = 34
-		versionCode = 51
-		versionName = "1.0.51"
+		targetSdk = 35
+		versionCode = 52
+		versionName = "1.0.52"
 		applicationId = "ws.xsoh.etar"
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 	}
@@ -148,6 +148,8 @@ dependencies {
 configure<GenerateBpPluginExtension> {
 	targetSdk.set(android.defaultConfig.targetSdk!!)
 	minSdk.set(android.defaultConfig.minSdk!!)
+	versionCode.set(android.defaultConfig.versionCode!!)
+	versionName.set(android.defaultConfig.versionName!!)
 	availableInAOSP.set { module: Module ->
 		when {
 			module.group.startsWith("androidx.databinding") -> false
