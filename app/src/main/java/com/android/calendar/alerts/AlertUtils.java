@@ -36,6 +36,11 @@ import android.text.format.DateUtils;
 import android.util.Log;
 
 import androidx.core.content.ContextCompat;
+import androidx.work.Data;
+import androidx.work.ExistingWorkPolicy;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+
 import com.android.calendar.EventInfoActivity;
 import com.android.calendar.Utils;
 import com.android.calendar.calendarcommon2.Time;
@@ -172,10 +177,10 @@ public class AlertUtils {
                 startMillis, flags));
 
         if (!allDay && tz != Utils.getCurrentTimezone()) {
-            // Assumes time was set to the current tz
-            time.set(startMillis);
-            sb.append(" ").append(TimeZone.getTimeZone(tz).getDisplayName(
-                    false, TimeZone.SHORT, Locale.getDefault()));
+            TimeZone displayTz = TimeZone.getTimeZone(tz);
+            sb.append(" ").append(displayTz.getDisplayName(
+                    displayTz.inDaylightTime(new java.util.Date(startMillis)),
+                    TimeZone.SHORT, Locale.getDefault()));
         }
 
         if (eventDay == today + 1) {
@@ -349,5 +354,30 @@ public class AlertUtils {
         int startDay = Time.getJulianDay(startMillis, timeObj.getGmtOffset());
         timeObj.set(endMillis);
         return Time.getJulianDay(endMillis, timeObj.getGmtOffset()) - startDay;
+    }
+
+    /**
+     * Queues the AlertWorker with a specific action and a REPLACE policy
+     *
+     * @param context The application context.
+     * @param action The action to be triggered, e.g., Intent.ACTION_TIME_CHANGED.
+     */
+    public static void scheduleAlertWorker(Context context, String action) {
+        // Create input data for the worker
+        Data inputData = new Data.Builder()
+                .putString(AlertWorker.KEY_ACTION, action)
+                .build();
+
+        // Create a work request
+        OneTimeWorkRequest alertWorkRequest = new OneTimeWorkRequest.Builder(AlertWorker.class)
+                .setInputData(inputData)
+                .addTag("alert_processing_work")
+                .build();
+
+        // Queue work to avoid duplicates
+        WorkManager.getInstance(context).enqueueUniqueWork(
+                "CalendarAlertProcessing",
+                ExistingWorkPolicy.REPLACE,
+                alertWorkRequest);
     }
 }

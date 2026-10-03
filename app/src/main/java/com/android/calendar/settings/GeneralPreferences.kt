@@ -34,6 +34,9 @@ import android.provider.CalendarContract.CalendarCache
 import android.provider.SearchRecentSuggestions
 import android.provider.Settings
 import android.text.TextUtils
+import java.text.DateFormatSymbols
+import java.util.Calendar
+import java.util.Locale
 import android.util.SparseIntArray
 import android.widget.Toast
 import androidx.preference.CheckBoxPreference
@@ -66,6 +69,7 @@ class GeneralPreferences : PreferenceFragmentCompat(),
     private lateinit var doNotCheckBatteryOptimizationPref: SwitchPreference
     private lateinit var defaultStartPref: ListPreference
     private lateinit var hideDeclinedPref: SwitchPreference
+    private lateinit var staggeredDisplayPref: SwitchPreference
     private lateinit var weekStartPref: ListPreference
     private lateinit var dayWeekPref: ListPreference
     private lateinit var defaultEventDurationPref: ListPreference
@@ -111,6 +115,7 @@ class GeneralPreferences : PreferenceFragmentCompat(),
         doNotCheckBatteryOptimizationPref = preferenceScreen.findPreference(KEY_DO_NOT_CHECK_BATTERY_OPTIMIZATION)!!
         defaultStartPref = preferenceScreen.findPreference(KEY_DEFAULT_START)!!
         hideDeclinedPref = preferenceScreen.findPreference(KEY_HIDE_DECLINED)!!
+        staggeredDisplayPref = preferenceScreen.findPreference(KEY_STAGGERED_DISPLAY)!!
         weekStartPref = preferenceScreen.findPreference(KEY_WEEK_START_DAY)!!
         dayWeekPref = preferenceScreen.findPreference(KEY_DAYS_PER_WEEK)!!
         defaultEventDurationPref = preferenceScreen.findPreference(KEY_DEFAULT_EVENT_DURATION)!!
@@ -153,6 +158,7 @@ class GeneralPreferences : PreferenceFragmentCompat(),
             preferenceScreen.removePreferenceRecursively(KEY_PURE_BLACK_NIGHT_MODE)
         }
 
+        buildWeekStartEntries()
         buildSnoozeDelayEntries()
         buildDefaultReminderPrefEntries()
         handleUseCustomSnoozeDelayVisibility()
@@ -222,6 +228,7 @@ class GeneralPreferences : PreferenceFragmentCompat(),
         doNotCheckBatteryOptimizationPref.onPreferenceChangeListener = listener
         defaultStartPref.onPreferenceChangeListener = listener
         hideDeclinedPref.onPreferenceChangeListener = listener
+        staggeredDisplayPref.onPreferenceChangeListener = listener
         weekStartPref.onPreferenceChangeListener = listener
         dayWeekPref.onPreferenceChangeListener = listener
         defaultEventDurationPref.onPreferenceChangeListener = listener
@@ -307,6 +314,10 @@ class GeneralPreferences : PreferenceFragmentCompat(),
                 requireActivity().sendBroadcast(intent)
                 return true
             }
+            staggeredDisplayPref -> {
+                staggeredDisplayPref.isChecked = newValue as Boolean
+                return true
+            }
             weekStartPref -> {
                 weekStartPref.value = newValue as String
                 weekStartPref.summary = weekStartPref.entry
@@ -351,6 +362,22 @@ class GeneralPreferences : PreferenceFragmentCompat(),
 
         val ring = RingtoneManager.getRingtone(activity, Uri.parse(uri))
         return ring?.getTitle(context)
+    }
+
+    private fun buildWeekStartEntries() {
+        val symbols = DateFormatSymbols.getInstance(Locale.getDefault())
+        val weekdays = symbols.weekdays
+        val entries = arrayOf(
+            getString(R.string.week_start_locale_default),
+            weekdays[Calendar.SUNDAY],
+            weekdays[Calendar.MONDAY],
+            weekdays[Calendar.TUESDAY],
+            weekdays[Calendar.WEDNESDAY],
+            weekdays[Calendar.THURSDAY],
+            weekdays[Calendar.FRIDAY],
+            weekdays[Calendar.SATURDAY]
+        )
+        weekStartPref.entries = entries
     }
 
     private fun buildSnoozeDelayEntries() {
@@ -487,6 +514,7 @@ class GeneralPreferences : PreferenceFragmentCompat(),
         const val KEY_PURE_BLACK_NIGHT_MODE = "pref_pure_black_night_mode"
         const val KEY_DEFAULT_START = "preferences_default_start"
         const val KEY_HIDE_DECLINED = "preferences_hide_declined"
+        const val KEY_STAGGERED_DISPLAY = "preferences_staggered_display"
         const val KEY_WEEK_START_DAY = "preferences_week_start_day"
         const val KEY_SHOW_WEEK_NUM = "preferences_show_week_num"
         const val KEY_DAYS_PER_WEEK = "preferences_days_per_week"
@@ -523,9 +551,13 @@ class GeneralPreferences : PreferenceFragmentCompat(),
 
         // These must be in sync with the array preferences_week_start_day_values
         const val WEEK_START_DEFAULT = "-1"
-        const val WEEK_START_SATURDAY = "7"
         const val WEEK_START_SUNDAY = "1"
         const val WEEK_START_MONDAY = "2"
+        const val WEEK_START_TUESDAY = "3"
+        const val WEEK_START_WEDNESDAY = "4"
+        const val WEEK_START_THURSDAY = "5"
+        const val WEEK_START_FRIDAY = "6"
+        const val WEEK_START_SATURDAY = "7"
         // Default preference values
         const val DEFAULT_DEFAULT_START = "-2"
         const val DEFAULT_START_VIEW = CalendarController.ViewType.WEEK
